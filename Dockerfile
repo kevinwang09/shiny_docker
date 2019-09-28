@@ -14,7 +14,8 @@ RUN sudo apt-get install htop
 ## assume shiny app is in build folder /shiny
 COPY ./myapp/ /srv/shiny-server/myapp/
 
-# copy shiny-server config file
-COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
 
-CMD ["/usr/bin/shiny-server.sh"]
+## Not used
+# copy shiny-server config file
+# COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
+# CMD ["/usr/bin/shiny-server.sh"]

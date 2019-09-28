@@ -1,6 +1,6 @@
 library(googleComputeEngineR)
 project = "scmerge"
-zone = "australia-southeast1-a"
+zone = "us-central1-a"
 
 gce_global_project(project)
 gce_global_zone(zone)
@@ -8,7 +8,7 @@ gce_global_zone(zone)
 # gce_list_zones(project)
 # View(gce_list_machinetype()$items)
 
-(tag = "gcr.io/scmerge/shiny_docker:3347aec")
+(tag = "11fbe8fbc530")
 
 vm <- gce_vm(template = "shiny", 
              name = "myapp",
