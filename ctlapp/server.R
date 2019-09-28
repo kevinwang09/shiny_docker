@@ -21,7 +21,7 @@ server <- (function(input, output, session) {
         print_res = data.frame(
             vm_name = vm_name,
             status = vm$status,
-            networkIP = vm$networkInterfaces$accessConfigs[[1]]$natIP 
+            networkIP = vm$networkInterfaces$accessConfigs[[1]]$natIP
         )
         return(print_res)
     })
@@ -31,13 +31,17 @@ server <- (function(input, output, session) {
     }) 
     
     
-    kill <- eventReactive(input$kill, {
+    observeEvent(input$kill, {
         googleComputeEngineR::gce_vm_delete(as.character(gcvm()$vm_name))
+        output$terminate <- shiny::renderTable("The VM is being terminated")
     })
     
-    cancel.onSessionEnded <- session$onSessionEnded(function() {
-        googleComputeEngineR::gce_vm_delete(as.character(gcvm()$vm_name))
-    })
+    # cancel.onSessionEnded <- session$onSessionEnded(function() {
+    #     # googleComputeEngineR::gce_vm_delete(as.character(gcvm()$vm_name))
+    #     output$terminate <- renderDataTable(
+    #         data.frame(message = gcvm()$vm_name)
+    #     )
+    # })
     
 })
 

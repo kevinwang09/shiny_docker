@@ -24,7 +24,8 @@ shinyUI(fluidPage(
 
         # Show a plot of the generated distribution
         mainPanel(
-            shiny::dataTableOutput("text")
+            shiny::dataTableOutput("text"),
+            shiny::verbatimTextOutput("terminate")
         )
     )
 ))
