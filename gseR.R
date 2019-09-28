@@ -8,13 +8,15 @@ gce_global_zone(zone)
 # gce_list_zones(project)
 # View(gce_list_machinetype()$items)
 
-(tag = "11fbe8fbc530")
+(tag = "gcr.io/scmerge/shiny_docker:622256b")
 
 vm <- gce_vm(template = "shiny", 
              name = "myapp",
              disk_size_gb = 10,
              predefined_type = "n1-standard-2",
              dynamic_image = tag)
+
+gce_vm_delete("myapp")
 
 vm <- gce_ssh_setup(vm,
                     username = "rstudio",
