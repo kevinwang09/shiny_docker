@@ -1,1 +1,1 @@
-install.packages(c("shiny"))
+install.packages(c("shinydashboard"))
