@@ -1,4 +1,4 @@
-FROM rocker/shiny:latest
+FROM rocker/shiny-verse:latest
 MAINTAINER Kevin Wang "kevin.wang@sydney.edu.au"
 
 # install ssl
@@ -7,9 +7,10 @@ RUN sudo apt-get install -y libssl-dev
 
 ADD install.R /home/
 # Running install
-RUN R -f /home/install.R
 RUN sudo apt-get update
 RUN sudo apt-get install htop
+RUN R -f /home/install.R
+
 
 ## assume shiny app is in build folder /shiny
 ## This deployment method makes the app at xxx.xxx.xxx.xxx/myapp/
