@@ -1,5 +1,5 @@
 library(googleComputeEngineR)
-project = "scmerge"
+project = "scpworkshop"
 zone = "us-central1-a"
 
 gce_global_project(project)
@@ -8,15 +8,15 @@ gce_global_zone(zone)
 # gce_list_zones(project)
 # View(gce_list_machinetype()$items)
 
-(tag = "gcr.io/scmerge/shiny_docker:622256b")
+(tag = "gcr.io/scpworkshop/shiny_docker")
 
 vm <- gce_vm(template = "shiny", 
-             name = "myapp",
+             name = "catdog",
              disk_size_gb = 10,
              predefined_type = "n1-standard-2",
              dynamic_image = tag)
 
-gce_vm_delete("myapp")
+gce_vm_delete("catdog")
 
 vm <- gce_ssh_setup(vm,
                     username = "rstudio",
