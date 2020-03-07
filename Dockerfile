@@ -9,6 +9,9 @@ ADD install.R /home/
 # Running install
 RUN sudo apt-get update
 RUN sudo apt-get install htop
+RUN sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN sudo /usr/bin/python3.5 get-pip.py
+RUN sudo /usr/bin/python3.5 -m pip install --upgrade --user virtualenv
 RUN R -f /home/install.R
 
 
