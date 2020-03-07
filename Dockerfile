@@ -17,7 +17,7 @@ RUN R -f /home/install.R
 
 ## assume shiny app is in build folder /shiny
 ## This deployment method makes the app at xxx.xxx.xxx.xxx/myapp/
-# COPY ./catdog/ /srv/shiny-server/catdog/
+COPY ./catdog/ /srv/shiny-server/catdog/
 
 
 ## This deployment method makes the xxx.xxx.xxx.xxx
