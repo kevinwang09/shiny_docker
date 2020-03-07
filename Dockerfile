@@ -8,7 +8,7 @@ RUN sudo apt-get install -y libssl-dev
 ADD install.R /home/
 # Running install
 RUN sudo apt-get update
-RUN sudo apt-get install htop curl
+RUN sudo apt-get install -y htop curl
 RUN sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN sudo /usr/bin/python3.5 get-pip.py
 RUN sudo /usr/bin/python3.5 -m pip install --upgrade --user virtualenv
