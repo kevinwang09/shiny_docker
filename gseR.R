@@ -12,7 +12,7 @@ gce_global_zone(zone)
 
 vm <- gce_vm(template = "shiny", 
              name = "catdog",
-             disk_size_gb = 10,
+             disk_size_gb = 20,
              predefined_type = "n1-standard-2",
              dynamic_image = tag)
 
