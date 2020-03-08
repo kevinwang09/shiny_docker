@@ -6,7 +6,6 @@ library(DT)
 # load vgg19 model pretrained with imagenet
 # model = application_vgg19(weights = 'imagenet')
 # save_model_hdf5(model, "vgg.h5")
-
 model <- application_resnet50(weights = 'imagenet')
 
 labels_tbl = read_csv("supp/labels_tbl.csv")

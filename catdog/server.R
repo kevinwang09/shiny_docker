@@ -5,7 +5,7 @@ shinyServer(function(input, output) {
     
     image <- reactive({
         req(input$url)
-        file_name = paste0(getwd(), "/tmp.jpg")
+        file_name = tempfile()
         download.file(input$url, destfile = file_name)
         file_name
     })
