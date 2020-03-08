@@ -36,3 +36,4 @@ vignettes/*.pdf
 rsconnect/
 /log
 .DS_Store
+vgg.h5

@@ -8,12 +8,12 @@ gce_global_zone(zone)
 # gce_list_zones(project)
 # View(gce_list_machinetype()$items)
 
-(tag = "gcr.io/scpworkshop/shiny_docker:c965538")
+(tag = "gcr.io/scpworkshop/shiny_docker:79588ea")
 
 vm <- gce_vm(template = "shiny", 
              name = "catdog",
              disk_size_gb = 20,
-             predefined_type = "n1-standard-2",
+             predefined_type = "n1-highmem-8",
              dynamic_image = tag)
 
 gce_vm_delete("catdog")

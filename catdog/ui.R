@@ -9,7 +9,8 @@ shinyUI(
                           label = "Enter URL")
             ),
             mainPanel(
-                dataTableOutput(outputId = "pred_table")
+                dataTableOutput(outputId = "pred_table"),
+                plotOutput(outputId = "image")
             )
         )
     )
