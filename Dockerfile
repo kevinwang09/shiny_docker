@@ -12,12 +12,13 @@ RUN sudo apt-get install -y htop curl
 RUN sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN sudo /usr/bin/python3.5 get-pip.py
 RUN sudo /usr/bin/python3.5 -m pip install --upgrade --user virtualenv
+RUN sudo pip install h5py
 RUN R -f /home/install.R
 
 
 ## assume shiny app is in build folder /shiny
-## This deployment method makes the app at xxx.xxx.xxx.xxx/myapp/
-COPY ./myapp/ /srv/shiny-server/myapp/
+## This deployment method makes the app at xxx.xxx.xxx.xxx/catdog/
+COPY ./catdog/ /srv/shiny-server/catdog/
 
 
 ## This deployment method makes the xxx.xxx.xxx.xxx
