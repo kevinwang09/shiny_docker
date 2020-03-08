@@ -7,11 +7,6 @@ library(DT)
 # model = application_vgg19(weights = 'imagenet')
 # save_model_hdf5(model, "vgg.h5")
 
-# reticulate test script
-library(reticulate)
-os <- import("os")
-os$listdir(".")
-
 model <- application_resnet50(weights = 'imagenet')
 
 labels_tbl = read_csv("supp/labels_tbl.csv")

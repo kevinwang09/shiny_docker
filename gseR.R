@@ -8,7 +8,8 @@ gce_global_zone(zone)
 # gce_list_zones(project)
 # View(gce_list_machinetype()$items)
 
-(tag = "gcr.io/scpworkshop/shiny_docker:79588ea")
+
+(tag = "gcr.io/scpworkshop/shiny_docker:2107fdd")
 
 vm <- gce_vm(template = "shiny", 
              name = "catdog",
