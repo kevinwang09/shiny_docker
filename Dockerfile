@@ -12,7 +12,8 @@ RUN sudo apt-get install -y htop curl
 RUN sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN sudo /usr/bin/python3.5 get-pip.py
 RUN sudo /usr/bin/python3.5 -m pip install --upgrade --user virtualenv
-RUN sudo pip install h5py
+RUN sudo apt-get install -y libpython-dev
+RUN sudo apt-get install -y libpython3-dev
 RUN R -f /home/install.R
 
 
