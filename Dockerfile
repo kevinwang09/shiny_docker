@@ -10,8 +10,8 @@ RUN sudo R -f /home/install.R
 ## This deployment method makes the app at xxx.xxx.xxx.xxx/catdog/
 COPY ./myapp /srv/shiny-server/myapp/
 RUN sudo mkdir /home/gittmp/
-RUN sudo git clone https://github.com/kevinwang09/catdog_shiny /home/gittmp/
-RUN sudo git clone https://github.com/kevinwang09/covid19 /home/gittmp/
+RUN sudo git clone https://github.com/kevinwang09/catdog_shiny /home/gittmp/catdog
+RUN sudo git clone https://github.com/kevinwang09/covid19 /home/gittmp/covid19
 
 ## Copy all the shiny apps to the shiny server folder
 RUN sudo cp -r /home/gittmp/* /srv/shiny-server/
