@@ -1,6 +1,8 @@
 FROM rocker/shiny-verse:latest
 MAINTAINER Kevin Wang "kevin.wang@sydney.edu.au"
 
+ADD docker_setup.sh /home/
+RUN bash /home/docker_setup.sh 
 ## This deployment method makes the app at xxx.xxx.xxx.xxx/catdog/
 COPY ./myapp /srv/shiny-server/myapp/
 RUN sudo mkdir /home/gittmp/
