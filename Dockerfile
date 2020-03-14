@@ -1,25 +1,14 @@
 FROM rocker/shiny-verse:latest
 MAINTAINER Kevin Wang "kevin.wang@sydney.edu.au"
 
-# install ssl
-RUN sudo apt-get update; exit 0
-RUN sudo apt-get install -y libssl-dev
-
-ADD install.R /home/
-# Running install
-RUN sudo apt-get update
-RUN sudo apt-get install -y htop curl libpython-dev libpython3-dev libjpeg-dev
-RUN sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-RUN sudo /usr/bin/python3.5 get-pip.py
-RUN sudo /usr/bin/python3.5 -m pip install --upgrade --user virtualenv
-RUN sudo pip3 install h5py tensorflow Pillow
-RUN R -f /home/install.R
-
-
-## assume shiny app is in build folder /shiny
 ## This deployment method makes the app at xxx.xxx.xxx.xxx/catdog/
-COPY ./catdog/ /srv/shiny-server/catdog/
-COPY ./myapp/ /srv/shiny-server/myapp/
+COPY ./myapp /srv/shiny-server/myapp/
+RUN sudo mkdir /home/gittmp/
+RUN sudo git clone https://github.com/kevinwang09/catdog_shiny /home/gittmp/
+RUN sudo git clone https://github.com/kevinwang09/covid19 /home/gittmp/
+
+## Copy all the shiny apps to the shiny server folder
+RUN sudo cp -r /home/gittmp/* /srv/shiny-server/
 
 ## This deployment method makes the xxx.xxx.xxx.xxx
 ## copy shiny-server config file
