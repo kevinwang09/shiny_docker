@@ -12,6 +12,8 @@ COPY ./myapp /srv/shiny-server/myapp/
 RUN sudo mkdir /home/gittmp/
 RUN sudo git clone https://github.com/kevinwang09/catdog_shiny /home/gittmp/catdog
 RUN sudo git clone https://github.com/kevinwang09/covid19 /home/gittmp/covid19
+RUN sudo mkdir /srv/shiny-server/fail/
+RUN sudo cp -r ./fail /srv/shiny-server/fail/
 
 ## Copy all the shiny apps to the shiny server folder
 RUN sudo cp -r /home/gittmp/* /srv/shiny-server/
